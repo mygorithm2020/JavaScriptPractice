@@ -1,0 +1,27 @@
+{
+   "background": {
+      "page": "background.html"
+   },
+   "browser_action": {
+      "default_popup": "popup.html",
+      "default_title": "telegram"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "css": [ "content.css" ],
+      "js": [ "content.js" ],
+      "matches": [ "https://www.letskorail.com/*" ],
+      "run_at": "document_end"
+   } ],
+   "description": "KTX 매진 좌석 예약 도구",
+   "icons": {
+      "96": "icon96.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAidlXqgp5YIor5uK/zQKQTLmXn1193AItb7ZR8YpoiBaD/OaXkRxMGoE5N0Z4vqBsmEN/ce+ObPAxQDiC8nB/zbhf24iHl7wByJbyclJvbAxjt9dOX/eXiyrhi7THsGzJk+slR3EbGHp2+1arsc3Lh42WFhIz8LidbB33H8HlfahLEsDwPuYG933jkj/nGIaB+v+hpbw2z+p0ErHa7rJA2NbGS+CAlxXCYTk3dsy48gwTwO0TAudSi6rr8iuvYiSCLmYnBofT2K88bmGAWMgZTYI5MNz4Ow5pBFJq7jdpkgFnwKO0JUdkz1fZIQG+X4sL3RLzksf3FqZ3wa3/mYb8BQIDAQAB",
+   "manifest_version": 2,
+   "name": "KTX Macro",
+   "permissions": [ "https://www.letskorail.com/" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.4.0",
+   "web_accessible_resources": [ "inject.js", "assets/tada.mp3" ]
+}
