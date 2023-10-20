@@ -2,8 +2,8 @@
 function EncryptTest(plain)
 {
     alert("Hello World");
-    var key = "GdrsptIkVbeUNHK/GDkE00w4rO226HfnRJpCodnfAFQ=";
-    var IV = "yzS2d4+oFn1ilJ075u2yDA==";
+    var key = "";
+    var IV = "";
     console.log(data);
 
     const cipher = CryptoJS.AES.encrypt(plain, CryptoJS.enc.Base64.parse(key), {
@@ -15,8 +15,8 @@ mode: CryptoJS.mode.CBC
 
 function DecryptTest(data)
 {
-    var key = "GdrsptIkVbeUNHK/GDkE00w4rO226HfnRJpCodnfAFQ=";
-    var IV = "yzS2d4+oFn1ilJ075u2yDA==";
+    var key = "";
+    var IV = "";
 
     const cipher = CryptoJS.AES.decrypt(data, CryptoJS.enc.Base64.parse(key), {
     iv: CryptoJS.enc.Base64.parse(IV),        
