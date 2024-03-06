@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="https://third-party-test.glitch.me/check.svg" alt="이미지">
+
+    <script>
+        fetch('https://third-party-test.glitch.me/check.svg')
+            .then(response => response.blob())
+            .then(imgBlob => {
+                const imageObjectURL = URL.createObjectURL(imgBlob); // 응답 받은 이미지를 blob 객체로 변환
+                const img = document.createElement('img'); // 이미지 태그를 생성하고
+                img.src = imageObjectURL; // 이미지 경로를 설정한뒤
+                document.body.append(img); // html에 추가
+            })
+    </script>
+</body>
+</html>
