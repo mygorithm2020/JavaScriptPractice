@@ -1,4 +1,4 @@
-[main](../README.md)
+[Home](../README.md)
 
 # 개요
 
