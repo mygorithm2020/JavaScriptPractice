@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>브라우저 로컬스토리지 예제</title>
+</head>
+<body>
+    <script>
+        class Cart{
+            constructor(){
+                this._key = "app-cart";
+                const itemString = localStorage.getItem(this._key);
+                if (itemString){
+                    this.items = JSON.parse(itemString);
+                } else {
+                    this.items = [];
+                }
+            }
+
+            addItem(item){
+                this.items.push(item);
+                const itemString = JSON.stringify(this.items);
+                localStorage.setItem(this._key, itemString);
+            }
+        }
+
+        const cart = new Cart();
+        console.table(cart.items);
+        cart.addItem({name : "AnoteBook", price : 20000});
+    </script>
+    
+</body>
+</html>

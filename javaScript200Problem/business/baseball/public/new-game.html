@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header class="top">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="./images/logo.png" style="width: 200px;">
+                    <h1>Baseball Game</h1>
+                </a>
+            </div>
+        </div>
+    </header>
+    <section class="main">
+        <div class="container digit-selector">
+            <h2>자리수를 선택하여 주세요.</h2>
+            <div class="number-selector">
+                <div class="number-circle">
+                    <input id="digit-number" type="number" min="0" max="9" value="3">
+                </div>
+            </div>
+            <a id="start-btn" type="button" class="btn btn-default btn-block">시작하기</a>
+        </div>
+    </section>
+    <script>
+        // 함수를 정의하고 바로 호출하는 방식(즉각호출패턴)을 통하여 전역에 변수가 정의되는 것을 방지
+        (function(){
+            const startBtn = document.getElementById('start-btn');
+            startBtn.addEventListener('click', e=>{
+                e.preventDefault();
+                const digit = document.getElementById('digit-number').value;
+                fetch('api/game', {
+                    method: 'POST',
+                    body : JSON.stringify({digit}),
+                    headers: new Headers({
+                        'Content-Type': 'application/json'
+                    })
+                })
+                .then(res => res.json())
+                .then( v => location.assign(`game.html?id=${v.id}`))
+                .catch((err) => {
+                    alert("새로운 게임 생성 실패!");
+                    console.log(err);
+                });
+            })
+        })();
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <title>베이스볼 게임</title>
+</head>
+<body>
+    <header class="top">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="./images/logo.png" style="width: 200px;">
+                    <h1>Baseball Game</h1>
+                </a>
+            </div>
+        </div>
+    </header>
+    <section class="main">
+        <div class="container game-main">
+            <div class="row">
+
+            </div>
+        </div>
+    </section>
+
+    <script>        
+        // 함수를 정의하고 바로 호출하는 방식(즉각호출패턴)을 통하여 전역에 변수가 정의되는 것을 방지
+        (function(){
+            const gameCardTemp = (game) => `
+            <div class="col-sm-4 col-md-3">
+                <div class="thumbnail">
+                    <div id="${game.id}" class="caption">
+                        <h3>${game.digit}자리 게임</h3>
+                        <p>id: ${game.id}</p>
+                        <p>
+                            <a href="game.html?id=${game.id}" class="btn btn-primary btn-continue-game"
+                            ${(game.done) ? 'disabled' : ''}>이어하기</a>
+                            <a href="#" class="btn btn-danger btn-delete-game" data-id="${game.id}">삭제하기</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            `;
+            
+            const containerEl = document.querySelector('.container .row');
+
+            function loadGameList() {
+                return fetch(`api/game/list`).then(v => v.json()).then(v => {
+                    const itemsHTML = v.map(game => gameCardTemp(game)).reduce((pre, curr) => pre + curr, '');
+                    containerEl.innerHTML = itemsHTML;
+                });
+            }
+
+            function deleteGame(id) {
+                return fetch(`api/game/${id}`, {
+                    method: 'DELETE'
+                }).then(loadGameList);
+            }
+
+            containerEl.addEventListener('click', e=> {
+                if (e.target.classList.contains('btn-continue-game')) {
+                    if (e.target.hasAttribute('disabled')) e.preventDefault();
+                }
+
+                if (e.target.classList.contains("btn-delete-game")) {
+                    e.preventDefault();
+                    deleteGame(e.target.dataset.id);
+                }
+            })
+
+            console.log("load");
+
+            loadGameList();
+
+        })();
+    </script>
+    
+</body>
+</html>

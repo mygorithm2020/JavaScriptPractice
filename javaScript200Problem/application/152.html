@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 내비게이션 예제 - 스크롤 처리하기</title>
+    <meta name="description" content="스크롤 시 화면의 특정 영역을 고정">
+</head>
+<body>
+    <section class="hero">
+        <h1>스크롤을 아래로 내려보세요.</h1>
+    </section>
+    <nav>
+        <a href="http://127.0.0.1:5500/application/152.html">자바스크립트 200제</a>
+    </nav>
+    <section class="articles" style="width: 10px;">
+        <ul>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+            <li>sssssssssss</li>
+        </ul>
+    </section>
+
+    <script>
+        const nav = document.querySelector("nav");
+        console.log(nav);
+        const navTopOffset = nav.offsetTop;
+        console.log(navTopOffset);
+        window.addEventListener("scroll", e=>{
+            if (window.pageYOffset >= navTopOffset){
+                nav.style.position = "fixed";
+                nav.style.top = 0;
+                nav.style.left = 0;
+                nav.style.right = 0;
+            } else{
+                nav.style.position = "";
+                nav.style.top = "";
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Promise 기반으로 서버와 HTTP 통신을 하는 Fetch API">
+    <title>Fetch API 예제</title>
+</head>
+<body>
+    <div id="user"></div>
+    <script>
+        const userEl = document.getElementById("user");
+        const reqPromise = fetch("https://api.github.com/users/jeado22", {
+            headers : {Accept : "application/json"},
+            method : "GET"
+        });
+        reqPromise
+        .then(res => {
+            if (res.status >= 200 && res.status < 300){
+                return res.json();
+            } else {
+                return Promise.reject(new Error(`Got status ${res.status}`));
+            }
+        })
+        .then(user => {
+            userEl.innerHTML = 
+            `
+            <img src="${user.avatar_url}" />
+            <br>
+            사용자 이름 : ${user.login}, 깃헙 주소 : ${user.html_url}
+            `
+        })
+        .catch(error => alert(error));
+    </script>
+    
+</body>
+</html>

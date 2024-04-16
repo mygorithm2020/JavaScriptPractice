@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 이해하기</title>
+</head>
+<body>
+    <div id="div1">
+        hello DOM       
+    </div>
+    <ul>
+        <li>
+            list item1
+        </li>
+        <li>
+            list item2
+        </li>
+    </ul>
+    <!-- 뒤에 적는 이유는 브라우저가 먼저 HTML 태그를 생성해야 DOM 객체로 읽을 수 있음 -->
+    <script>
+        const div1El = document.getElementById("div1");
+        console.log(div1El.innerHTML);
+
+        console.log(div1El.nodeType);
+        console.log(div1El.nodeType == Node.ELEMENT_NODE);
+
+        console.log(div1El.constructor);
+        console.log(div1El instanceof HTMLDivElement);
+        console.log(div1El instanceof HTMLElement);
+        console.log(div1El instanceof Element);
+        console.log(div1El instanceof Node);
+        
+        console.log(Element.prototype);
+        console.log(div1El.tagName);
+
+        const div1El2 = document.querySelector('#div1');
+        console.log(div1El2.innerHTML);
+
+        const lieLs = document.querySelectorAll("ul li");
+        console.log(lieLs);
+        lieLs.forEach((v) => {
+            console.log(v.innerHTML);
+            console.log(v.innerText);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="매번 초기화되는 할일 예제">
+    <title>할 일 앱 만들기 예제</title>
+</head>
+<body>
+    <div class="title">
+        <h1>나의 하루</h1>
+        <h2>10월 28일</h2>
+
+    </div>
+    <div class="todo-container">
+
+    </div>
+    <div class="add-todo">
+        <button>+</button>
+        <input type="text" placeholder="할 일 추가">
+
+    </div>
+
+
+    <script src="models.js"></script>
+    <script src="app.js"></script>
+    <script>
+        
+        const todoApp = new TodoApp([
+            {contents: "공부하기", done : false},
+            {contents: "놀기", done : true},
+            {contents: "밥먹기", done : false}
+        ]);
+
+
+        const todos = new TodoManager();
+        todos.addTodo("공부하기");
+        todos.addTodo("운동하기");
+        console.log(todos.getList());
+        console.log(todos.leftTodoCount);
+        todos.getList()[0].toggle();
+        console.log(todos.leftTodoCount);
+        setTimeout(() => {
+            todos.getList()[1].toggle();
+            console.log(todos.leftTodoCount);
+        }, 2000);
+    </script>
+    
+</body>
+</html>
