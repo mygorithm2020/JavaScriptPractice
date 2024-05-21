@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+a {
+    text-decoration: none; /* 기본 밑줄을 제거합니다 */
+}
+
+ul {
+    /* li의 깔끔한 정렬을 위해 기본마진, 패딩 제거 */
+    margin: 0;
+    padding: 0;
+}
+
+a:hover {
+    text-decoration: underline; /* 마우스 커서가 올라갔을 때 밑줄을 생성합니다*/
+}
+
+/* 재사용 클래스 */
+.color_naver {
+    color: #03cf5d;
+}
+
+/* 재 사용 클래스 */
+.text_bold-13 {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+
