@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nest Chat</title>
+</head>
+<body>
+    <h2>Simple Nest Chat</h2>
+
+    <div>
+        <h2>채팅방 목록</h2>
+        <ul id="rooms">
+
+        </ul>
+    </div>
+
+    <input type="text" id="message" placeholder="메시지를 입력해주세요.">
+    <button onclick="sendMessage()">전송</button>
+    <button onclick="createRoom()">방 만들기</button>
+
+    <div>
+        <h2>공지</h2>
+        <div id="notice">
+
+        </div>
+    </div>
+
+    <div>
+        <h2>채팅</h2>
+        <div id="chat"></div>
+    </div>
+    
+</body>
+<!-- jquery 로드 -->
+<script
+src="https://code.jquery.com/jquery-3.7.1.slim.js"
+integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc="
+crossorigin="anonymous"></script>
+<!-- socket.io 클라 로드 -->
+<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+<script src="http://localhost:3000/script.js"></script>
+<script>
+    // const socket = io('http://localhost:3000');
+
+    // function sendMessage() {
+    //     const message = $('#message').val();
+    //     socket.emit('message', message);
+    // }
+
+    // // 서버 접속 확인 이벤트
+    // socket.on('connect', () => {
+    //     console.log('connected');
+    // });
+
+    // socket.on('message', (message) => {
+    //     $('#chat').append(`<div>${message}</div>`);
+    // });
+
+</script>
+</html>
