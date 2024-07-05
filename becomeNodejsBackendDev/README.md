@@ -16,7 +16,7 @@ Node.js 백엔드 개발자 되기 연습 프로젝트
 <img src="./business/baseball/game_ex.png" width="400px"> -->
 
 ### 내용
-    chapter~ : 제공받은 코드, practice~ : 직접 실습한 코드    
+    chapter~ : 제공받은 코드, practice~ : 직접 실습한 코드(2: node, 3~ : express, 8~ : NestJS)    
     노드 실행 Ctrl + F5 / 디버그 F5
     자주 사용하는 HTTP 헤더 Content-Type, Accept, Accept-Charset, User-Agent, Referer
     npx를 이용하면 node_modules 파일을 쉽게 실행 가능    
