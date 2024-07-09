@@ -1,4 +1,5 @@
-# 개요
+
+## 개요
 
 JavaScript 학습 및 테스트 저장소<br>
 하나의 프로젝트는 아니며, 코드를 연습하거나 실험한 기록
@@ -10,7 +11,7 @@ JavaScript 학습 및 테스트 저장소<br>
 -  [책 : 면접을 위한 CS 전공지식 노트](./CSMajorKnowledge/)
 -  [기타](./etc/)
 
-## 환경세팅
+### 환경세팅
 - JavaScript (3.12.1 이상)
 - npm
 - yarn
