@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "@nestjs/common": "^10.3.8",
+    "@nestjs/core": "^10.3.8",
+    "@nestjs/platform-express": "^10.3.8",
+    "@nestjs/platform-socket.io": "^10.3.8",
+    "@nestjs/websockets": "^10.3.8",
+    "mongodb": "^6.3.0",
+    "reflect-metadata": "^0.2.2",
+    "typescript": "^5.4.5",
+    "ws": "^8.17.0"
+  },
+  "devDependencies": {
+    "@types/socket.io": "^3.0.2"
+  }
+}

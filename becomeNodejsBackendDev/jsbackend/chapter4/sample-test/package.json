@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "sample-package": "file:../sample-package"
+  }
+}
