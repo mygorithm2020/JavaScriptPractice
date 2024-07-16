@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹사이트 추천 서비스</title>
+    <style>
+        /* 기본 스타일링 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #f2f2f2;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        .main-content {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .content {
+            flex: 2;
+            background-color: #e9e9e9;
+            padding: 10px;
+            margin-right: 10px;
+            margin-left: 14%;
+        }
+        .sidebar {
+            flex: 1;
+            background-color: #f5f5f5;
+            padding: 10px;
+            margin-right: 6%;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>북마크</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#">홈</a></li>
+        <li><a href="#">소개</a></li>
+        <li><a href="#">서비스</a></li>
+        <li><a href="#">연락처</a></li>
+    </ul>
+</nav>
+
+<div class="main-content">
+    <div class="content">
+        <!-- <h2>주요 내용 영역</h2>
+        <p>여기에 웹페이지의 주요 내용을 채워 넣으세요.</p> -->
+        <h1>어떤 웹사이트를 찾고 계신가요?</h1>
+        <form id="inputForm">
+            <label for="interest">관심사:</label>
+            <input type="text" id="interest" name="interest" placeholder="예: 여행, 음악, 프로그래밍" required>
+            <button type="submit">추천 받기</button>
+        </form>
+        <div id="results">
+            <h2>추천 웹사이트:</h2>
+            <ul id="websiteList">
+                <!-- 추천 웹사이트 목록이 여기에 동적으로 추가됩니다. -->
+            </ul>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <!-- <h2>사이드바</h2>
+        <p>여기에 사이드바 콘텐츠를 추가하세요.</p> -->
+        <h2>추천 사이트</h2>
+        <p>여기에 사이드바 콘텐츠를 추가하세요.</p>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 웹페이지 제작자 이름. 모든 권리 보유.</p>
+</footer>
+
+<script>
+    const form = document.getElementById('inputForm');
+    const interestInput = document.getElementById('interest');
+    const websiteList = document.getElementById('websiteList');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        // 사용자 입력 가져오기
+        const interest = interestInput.value.trim();
+
+        // 관심사에 따라 추천할 웹사이트 배열 (예시)
+        let recommendedWebsites = [];
+
+        // 관심사에 따라 추천할 웹사이트 설정
+        switch (interest.toLowerCase()) {
+            case '여행':
+                recommendedWebsites = [
+                    { name: 'Airbnb', url: 'https://www.airbnb.com' },
+                    { name: 'Tripadvisor', url: 'https://www.tripadvisor.com' }
+                ];
+                break;
+            case '음악':
+                recommendedWebsites = [
+                    { name: 'Spotify', url: 'https://www.spotify.com' },
+                    { name: 'SoundCloud', url: 'https://soundcloud.com' }
+                ];
+                break;
+            case '프로그래밍':
+                recommendedWebsites = [
+                    { name: 'Stack Overflow', url: 'https://stackoverflow.com' },
+                    { name: 'GitHub', url: 'https://github.com' }
+                ];
+                break;
+            default:
+                recommendedWebsites = [
+                    { name: 'Google', url: 'https://www.google.com' }
+                ];
+        }
+
+        // 결과를 HTML로 표시
+        displayRecommendedWebsites(recommendedWebsites);
+    });
+
+    function displayRecommendedWebsites(websites) {
+        // 리스트 초기화
+        websiteList.innerHTML = '';
+
+        // 각 웹사이트를 리스트 아이템으로 추가
+        websites.forEach(site => {
+            const listItem = document.createElement('li');
+            const link = document.createElement('a');
+            link.setAttribute('href', site.url);
+            link.setAttribute('target', '_blank'); // 새 탭에서 열도록 설정
+            link.textContent = site.name;
+            listItem.appendChild(link);
+            websiteList.appendChild(listItem);
+        });
+    }
+</script>
+
+</body>
+</html>

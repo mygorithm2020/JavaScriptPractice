@@ -1,0 +1,9 @@
+.hidden {
+    display: none;
+    /* opacity: 1; */
+}
+
+#bg_img {
+    width: 50%;    
+    /* height: auto; */
+}

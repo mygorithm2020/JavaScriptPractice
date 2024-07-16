@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹사이트 추천 서비스</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        #inputForm {
+            margin-bottom: 20px;
+        }
+        #results {
+            text-align: left;
+            padding: 10px;
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>어떤 웹사이트를 찾고 계신가요?</h1>
+        <form id="inputForm">
+            <label for="interest">관심사:</label>
+            <input type="text" id="interest" name="interest" placeholder="예: 여행, 음악, 프로그래밍" required>
+            <button type="submit">추천 받기</button>
+        </form>
+        <div id="results">
+            <h2>추천 웹사이트:</h2>
+            <ul id="websiteList">
+                <!-- 추천 웹사이트 목록이 여기에 동적으로 추가됩니다. -->
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('inputForm');
+        const interestInput = document.getElementById('interest');
+        const websiteList = document.getElementById('websiteList');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // 사용자 입력 가져오기
+            const interest = interestInput.value.trim();
+
+            // 관심사에 따라 추천할 웹사이트 배열 (예시)
+            let recommendedWebsites = [];
+
+            // 관심사에 따라 추천할 웹사이트 설정
+            switch (interest.toLowerCase()) {
+                case '여행':
+                    recommendedWebsites = [
+                        { name: 'Airbnb', url: 'https://www.airbnb.com' },
+                        { name: 'Tripadvisor', url: 'https://www.tripadvisor.com' }
+                    ];
+                    break;
+                case '음악':
+                    recommendedWebsites = [
+                        { name: 'Spotify', url: 'https://www.spotify.com' },
+                        { name: 'SoundCloud', url: 'https://soundcloud.com' }
+                    ];
+                    break;
+                case '프로그래밍':
+                    recommendedWebsites = [
+                        { name: 'Stack Overflow', url: 'https://stackoverflow.com' },
+                        { name: 'GitHub', url: 'https://github.com' }
+                    ];
+                    break;
+                default:
+                    recommendedWebsites = [
+                        { name: 'Google', url: 'https://www.google.com' }
+                    ];
+            }
+
+            // 결과를 HTML로 표시
+            displayRecommendedWebsites(recommendedWebsites);
+        });
+
+        function displayRecommendedWebsites(websites) {
+            // 리스트 초기화
+            websiteList.innerHTML = '';
+
+            // 각 웹사이트를 리스트 아이템으로 추가
+            websites.forEach(site => {
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                link.setAttribute('href', site.url);
+                link.setAttribute('target', '_blank'); // 새 탭에서 열도록 설정
+                link.textContent = site.name;
+                listItem.appendChild(link);
+                websiteList.appendChild(listItem);
+            });
+        }
+    </script>
+</body>
+</html>
